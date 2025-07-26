@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheels Of Names</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="favicon.ico" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="nav">
+        <h1>wheelofnames.com</h1>
+        <span id="menu"
+          ><i class="fa-solid fa-bars" style="color: #ffffff"></i
+        ></span>
+      </div>
+      <div id="circlePencil">
+        <span id="pencil"
+          ><i class="fa-solid fa-pencil" style="color: #ffffff"></i
+        ></span>
+      </div>
+      <!-- <div id="canvas">
+            <div id="wheel"><img src="wheeldownload.png" alt="wheel"></div>
+        </div> -->
+      <div id="canvas" style="position: relative; width: 500px; height: 500px">
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        <div class="center-circle" onclick="spin()">
+          <div class="triangle"></div>
+        </div>
+      </div>
+
+      <div id="namebar">
+        <div id="Entries">
+          Entries
+          <div id="count">8</div>
+        </div>
+        <div id="Results">Results</div>
+        <div id="Hide">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+          Hide
+        </div>
+      </div>
+
+      <!-- Winner Modal -->
+      <div id="winnerModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>🎉 We have a winner!</h2>
+          <p id="winnerName">Mukund</p>
+          <div class="actions">
+            <button onclick="closeModal()">Close</button>
+            <button onclick="removeWinner()">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
