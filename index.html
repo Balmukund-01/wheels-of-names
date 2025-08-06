@@ -37,29 +37,95 @@
       <!-- <div id="canvas">
             <div id="wheel"><img src="wheeldownload.png" alt="wheel"></div>
         </div> -->
-      <div id="canvas" style="position: relative; width: 500px; height: 500px">
-        <canvas id="wheelCanvas" width="500" height="500"></canvas>
-        <div class="center-circle" onclick="spin()">
-          <div class="triangle"></div>
+
+      <div class="content-area">
+        <div class="wheel-container">
+          <div
+            id="canvas"
+            style="position: relative; width: 500px; height: 500px"
+          >
+            <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            <div class="center-circle" onclick="spin()">
+              <div class="triangle"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div id="namebar">
+          <div id="Entries">
+            Entries
+            <div id="count">8</div>
+          </div>
+          <div id="Results">Results</div>
+          <div id="Hide">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            Hide
+          </div>
+        </div> -->
+        <div class="editor-container">
+          <div class="tab-container">
+            <div class="tabs">
+              <div class="tab-ui">
+                <button class="tab active" data-tab="entries">
+                  Entries <span class="badge" id="entriesCount">0</span>
+                </button>
+                <button class="tab" data-tab="results">
+                  Results <span class="badge" id="resultsCount">0</span>
+                </button>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" id="hideToggle" /> Hide
+              </label>
+            </div>
+            <div class="tab-content">
+              <div class="panel" id="entriesPanel">
+                <div class="button-row">
+                  <button id="shuffleBtn">
+                    <i class="fa-solid fa-random"></i> Shuffle
+                  </button>
+                  <button id="sortBtn">
+                    <i class="fa-solid fa-sort-alpha-up"></i> Sort
+                  </button>
+                  <button id="addImageBtn">
+                    <i class="fa-solid fa-image"></i> Add image
+                    <i
+                      class="q-icon fas fa-caret-down q-btn-dropdown__arrow q-btn-dropdown__arrow-container"
+                      aria-hidden="true"
+                    >
+                    </i>
+                  </button>
+                </div>
+                <label class="checkbox-label left-align">
+                  <input type="checkbox" id="Advance" /> Advance
+                </label>
+
+                <div id="nameEditor" contenteditable="true" class="editor">
+                  <div>shukla</div>
+                  <div>tushar</div>
+                </div>
+              </div>
+              <div class="panel hidden" id="resultsPanel">
+                <!-- Example results list -->
+                <p>No results yet.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div id="namebar">
-        <div id="Entries">
-          Entries
-          <div id="count">8</div>
-        </div>
-        <div id="Results">Results</div>
-        <div id="Hide">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-          Hide
-        </div>
-      </div>
+      <!-- Add just above <div id="canvas"> -->
+      <!-- <div id="inputPanel">
+        <textarea
+          id="nameInput"
+          placeholder="Enter names, one per line"
+        ></textarea>
+        <button id="loadNamesBtn">Load Names</button>
+      </div> -->
 
       <!-- Winner Modal -->
       <div id="winnerModal" class="modal hidden">
