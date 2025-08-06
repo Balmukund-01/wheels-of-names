@@ -349,4 +349,23 @@ function closeModal() {
     draw();
     closeModal();
   }
-  
+function updateNames() {
+    const input = document.getElementById("nameList").value;
+    const newNames = input.split(",").map(name => name.trim()).filter(name => name !== "");
+
+    if (newNames.length < 2) {
+        alert("Please enter at least two names.");
+        return;
+    }
+
+    items = newNames;
+
+    // Reassign colors for new names
+    colors = assignColorsWithoutRepeats(items, fixedColors);
+
+    // Recalculate step and itemDegs
+    step = 360 / items.length;
+    itemDegs = {};
+
+    draw();
+}

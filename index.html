@@ -39,11 +39,51 @@
         </div> -->
       <div id="canvas" style="position: relative; width: 500px; height: 500px">
         <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        
+
         <div class="center-circle" onclick="spin()">
           <div class="triangle"></div>
         </div>
       </div>
-
+      
+<div id="nameInputArea" style="margin-top: 30px; text-align: center;">
+  <textarea
+    id="nameList"
+    rows="4"
+    cols="50"
+    placeholder="Enter names, separated by commas"
+    style="
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border: 2px solid #3364f9;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: none;
+      background-color: #1c1c1c;
+      color: white;
+      outline: none;
+      box-shadow: 0 0 8px rgba(51, 100, 249, 0.5);
+    "
+  >Abhishek,Sagar,Amar,Nitesh,Sonu,Ibrar,Avinash,Ravi</textarea>
+  <br />
+  <button
+    onclick="updateNames()"
+    style="
+      margin-top: 12px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #3364f9;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    "
+  >
+    Update Wheel
+  </button>
+</div>
       <div id="namebar">
         <div id="Entries">
           Entries
