@@ -405,8 +405,9 @@ h1 {
   flex: 1;
   width: 90%;
   margin-top: 0px;
+  padding: 5px;
   margin-left: 6%;
-  margin-right: 6%;
+  margin-right: 10%;
 }
 
 .tab-container {
