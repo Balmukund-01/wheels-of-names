@@ -70,6 +70,7 @@ h1 {
     left: 4px;
     height: 430.4px;
     width: 100%;
+    flex-direction: column;
 }
 
 #canvas img {
