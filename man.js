@@ -125,14 +125,8 @@ let items = [
   // "Ibrar",
   // "Avinash",
   // "Ravi",
-  "Ali",
-  "Beatriz",
-  "Charles",
-  "Diya",
-  "Eric",
-  "Fatima",
-  "Gabriel",
-  "Hanna",
+  "Mukund",
+  "Avinash",
 ];
 
 // Fixed color sequence
@@ -259,18 +253,6 @@ let speed = 0;
 let maxRotation = randomRange(360 * 3, 360 * 6);
 let pause = false;
 
-let backgroundSpinSpeed = 0.06; // degrees per frame (slow)
-let backgroundActive = true; // First spin ke baad false ho jayega
-let backgroundFrameId = null;
-
-function backgroundRotate() {
-  if (!backgroundActive) return;
-  currentDeg += backgroundSpinSpeed;
-  draw();
-  backgroundFrameId = requestAnimationFrame(backgroundRotate);
-}
-backgroundRotate();
-
 // function animate() {
 //     if (pause) return;
 
@@ -294,40 +276,33 @@ function animate() {
     speed = 0;
     pause = true;
 
-    // // Normalize angle (0 - 360)
-    // const finalAngle = currentDeg % 360;
+    // Normalize angle (0 - 360)
+    const finalAngle = currentDeg % 360;
 
-    // // Find winning item
-    // // let winningItem = null;
-    // for (let name in itemDegs) {
-    //   const start = itemDegs[name].startDeg % 360;
-    //   const end = itemDegs[name].endDeg % 360;
+    // Find winning item
+    let winningItem = null;
+    for (let name in itemDegs) {
+      const start = itemDegs[name].startDeg % 360;
+      const end = itemDegs[name].endDeg % 360;
 
-    //   // Handle standard case
-    //   if (start < end) {
-    //     if (finalAngle >= start && finalAngle < end) {
-    //       winningItem = name;
-    //       break;
-    //     }
-    //   } else {
-    //     // Handle wrap-around case (e.g., 350 to 10)
-    //     if (finalAngle >= start || finalAngle < end) {
-    //       winningItem = name;
-    //       break;
-    //     }
-    //   }
-    // }
-
-    const normalizedAngle = (360 - (currentDeg % 360)) % 360; // Adjust for wheel direction
-
-    const index = Math.floor((normalizedAngle / 360) * items.length);
-    const winningItem = items[index];
+      // Handle standard case
+      if (start < end) {
+        if (finalAngle >= start && finalAngle < end) {
+          winningItem = name;
+          break;
+        }
+      } else {
+        // Handle wrap-around case (e.g., 350 to 10)
+        if (finalAngle >= start || finalAngle < end) {
+          winningItem = name;
+          break;
+        }
+      }
+    }
 
     // Log the winner correctly
     if (winningItem) {
       console.log("🎉 Winner:", winningItem);
-      document.getElementById("winnerName").innerText = winningItem;
-      document.getElementById("winnerModal").classList.remove("hidden");
     } else {
       console.log("Could not determine winner. Angle:", finalAngle);
     }
@@ -337,9 +312,7 @@ function animate() {
 
   currentDeg += speed;
   draw();
-
   requestAnimationFrame(animate); // Continue animation
-  // backgroundRotate(); // Keep background rotating
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -417,18 +390,8 @@ function updateItemsFromEditor() {
 function spin() {
   if (speed !== 0) return;
 
-  // First spin hone par background rotation hamesha ke liye band
-  if (backgroundActive) {
-    backgroundActive = false;
-    if (backgroundFrameId) {
-      cancelAnimationFrame(backgroundFrameId);
-      backgroundFrameId = null;
-    }
-  }
-
   maxRotation = randomRange(360 * 5, 360 * 8);
-  // currentDeg = 0;
-  speed = 0.1; // ek chhota initial push
+  currentDeg = 0;
   pause = false;
   draw();
   requestAnimationFrame(animate);
@@ -441,12 +404,6 @@ function closeModal() {
 function removeWinner() {
   const nameToRemove = document.getElementById("winnerName").innerText;
   items = items.filter((name) => name !== nameToRemove);
-
-  // Reassign colors, steps, and item degrees
-  colors = assignColorsWithoutRepeats(items, fixedColors);
-  step = 360 / items.length;
-  itemDegs = {};
-
   draw();
   closeModal();
 }
@@ -560,26 +517,3 @@ document.getElementById("nameEditor").addEventListener("input", () => {
 });
 
 //
-function updateNames() {
-  const input = document.getElementById("nameList").value;
-  const newNames = input
-    .split(",")
-    .map((name) => name.trim())
-    .filter((name) => name !== "");
-
-  if (newNames.length < 2) {
-    alert("Please enter at least two names.");
-    return;
-  }
-
-  items = newNames;
-
-  // Reassign colors for new names
-  colors = assignColorsWithoutRepeats(items, fixedColors);
-
-  // Recalculate step and itemDegs
-  step = 360 / items.length;
-  itemDegs = {};
-
-  draw();
-}

@@ -50,7 +50,7 @@ h1 {
   width: 40px;
   background-color: rgb(51, 100, 249);
   border-radius: 50%;
-  position: fixed;
+  position: absolute;
   top: 70px;
   left: 15px;
   /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); */
@@ -310,6 +310,8 @@ h1 {
 .tab-content {
   background: #1e1e1e;
   padding: 15px;
+  box-shadow: 0 1px 3px #928d8d, 0 1px 1px #ffffff, 0 2px 1px -1px #ffffff1f !important;
+  border-radius: 6px;
 }
 .panel.hidden {
   display: none;
@@ -404,10 +406,13 @@ h1 {
 .editor-container {
   flex: 1;
   width: 90%;
-  margin-top: 0px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: -45px;
   padding: 5px;
-  margin-left: 6%;
-  margin-right: 10%;
+  margin-left: 11%;
+  margin-right: 15%;
 }
 
 .tab-container {
@@ -417,6 +422,7 @@ h1 {
   margin-right: 10vh;
   gap: 3;
   margin-left: 3vh;
+  /* box-shadow: 0 1px 3px #fff3, 0 1px 1px #ffffff24, 0 2px 1px -1px #ffffff1f; */
 }
 
 .tabs {
@@ -486,4 +492,12 @@ h1 {
 .checkbox-label.left-align {
   justify-content: flex-start;
   margin-bottom: 18px;
+}
+
+#nameEditor {
+  box-shadow: 0 1px 3px #928d8d, 0 1px 1px #b3afaf, 0 2px 1px -1px #ffffff1f !important;
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  min-height: 120px;
 }

@@ -92,7 +92,7 @@
                     <i class="fa-solid fa-sort-alpha-up"></i> Sort
                   </button>
                   <button id="addImageBtn">
-                    <i class="fa-solid fa-image"></i> Add image
+                    <i class="fa-solid fa-image"></i> Add image &nbsp;
                     <i
                       class="q-icon fas fa-caret-down q-btn-dropdown__arrow q-btn-dropdown__arrow-container"
                       aria-hidden="true"
@@ -101,13 +101,54 @@
                   </button>
                 </div>
                 <label class="checkbox-label left-align">
-                  <input type="checkbox" id="Advance" /> Advance
+                  <input
+                    type="checkbox"
+                    id="Advance"
+                    style="font-weight: bold"
+                  />
+                  Advanced
                 </label>
 
                 <div id="nameEditor" contenteditable="true" class="editor">
-                  <div>shukla</div>
-                  <div>tushar</div>
+                  <textarea
+                    id="nameList"
+                    rows="4"
+                    cols="50"
+                    placeholder="Enter names, separated by commas"
+                    style="
+                      background-color: transparent;
+                      color: #ffffff;
+                      border: none;
+                      height: 100%;
+                      width: 100%;
+                    "
+                  >
+Ali,
+Beatriz,
+Charles,
+Diya,
+Eric,
+Fatima,
+Gabriel,
+Hanna</textarea
+                  >
                 </div>
+                <button
+                  onclick="updateNames()"
+                  style="
+                    margin-top: 12px;
+                    padding: 10px 20px;
+                    border: none;
+                    background-color: #3364f9;
+                    color: white;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+                  "
+                >
+                  Update Wheel
+                </button>
               </div>
               <div class="panel hidden" id="resultsPanel">
                 <!-- Example results list -->
